@@ -1,0 +1,109 @@
+################# keyword - document matrix ################# 
+
+# Document-Term matrix Copy from preprocessing function
+Mat.WordDoc <- matrix(keyword_all$dtm, nrow=nrow(keyword_all$dtm), ncol=ncol(keyword_all$dtm))
+
+# Column names setting for match
+colnames(Mat.WordDoc) <- colnames(keyword_all$dtm)
+
+# keyword vector
+Vec.Keyword <- as.vector(c("구청","정부과천청사", "방지", "발생건수", "지역갈등", "대책반", "관련기관", 
+                           "확산세", "국민건강", "돼지갈비", "경기도", "살충제", "매설",
+                           "전국", "경제계", "처리비용", "지원금", "서울동물원", "백신접종","한우",
+                           "상황실", "농장주", "강화군", "신고서", "청원", "매몰지", "접촉", "논의과정",
+                           "북한강", "긴급복구", "관계장관", "축산농", "시장", "농림부", "방문객"))
+
+# Match keyword column(Document-Term matrix) with keyword vector
+Mat.KeyDoc <- matrix(0, length(Vec.Keyword), length(Vec.Keyword))
+# 한칸씩 밀려서 +1 해줘야함
+Mat.KeyDoc <- Mat.WordDoc[,match(Vec.Keyword, colnames(Mat.WordDoc))+1]
+
+colnames(Mat.KeyDoc) <- as.vector(c("구청","정부과천청사", "방지", "발생건수", "지역갈등", "대책반", "관련기관", 
+                             "확산세", "국민건강", "돼지갈비", "경기도", "살충제", "매설",
+                             "전국", "경제계", "처리비용", "지원금", "서울동물원", "백신접종","한우",
+                             "상황실", "농장주", "강화군", "신고서", "청원", "매몰지", "접촉", "논의과정",
+                             "북한강", "긴급복구", "관계장관", "축산농가", "시장", "농림부", "방문객"))
+
+# 키워드 빈도수 벡터
+Vec.Keyword.Freq <- as.vector(colSums(Mat.KeyDoc))
+
+
+
+################# Co-Keyword Adjacency Matrix #################
+adj <- matrix(0, ncol(Mat.KeyDoc), ncol(Mat.KeyDoc))
+
+#Mat.KeyDoc[Mat.KeyDoc>1] <- 1
+for( i in 1:(nrow(adj)-1) )
+{
+  for( j in i:(nrow(adj)-1) )
+  {
+    adj[i, j+1] <- sum( (Mat.KeyDoc[,i]!=0) & (Mat.KeyDoc[,j+1]!=0) )
+  }
+}
+#colnames(adj) <- colnames(Vec.Keyword)
+#rownames(adj) <- colnames(Vec.Keyword)
+
+# build a graph from the Co-keyword Adjacency matrix
+g <- graph.adjacency(adj, mode="undirected", weighted=T)
+
+# remove loops
+g <- simplify(g)
+
+
+set.seed(1000)
+layout <- layout.fruchterman.reingold(g)
+
+# igraph plot parameter setting
+V(g)$label <- colnames(Mat.KeyDoc)
+
+# Edge weight refine
+weight <- E(g)$weight
+weight[is.na(weight)] <- 1
+
+# Vertex label size refine
+size <- Vec.Keyword.Freq
+size[size<50] <- 3
+size[size>3000] <- 14
+size[size>2000] <- 12
+size[size>1000] <- 10
+size[size>500] <- 9
+size[size>100] <- 7
+size[size>50] <- 5
+
+# Vertex label dist refine
+dist <- size
+dist[dist==5] <- 0.5
+dist[dist==7] <- 0.7
+dist[dist==3] <- 0.4
+dist[dist>=10] <- 0
+
+# Network visualization
+png(filename="net1.png", width=10000, height=8800)
+set.seed(3)
+plot(g, layout=layout,
+     vertex.label = V(g)$label,
+     vertex.label.color = "black",
+     vertex.label.cex = 20,
+     vertex.label.dist = dist,
+     vertex.size = size,
+     vertex.color = "gray48",
+     vertex.frame.color = "white",
+     edge.width = (weight/3 + 4),
+     edge.color = "gray"
+)
+dev.off()
+
+# Network centrality analysis
+central <- data.frame(keyword=colnames(Mat.KeyDoc), Freq=Vec.Keyword.Freq, degree=degree(g), between=betweenness(g), close=closeness(g))
+
+# degree sorting
+degree <- head(central[order(central[,3], decreasing=TRUE),], 10)
+# between sorting
+bet <- head(central[order(central[,4], decreasing=TRUE),], 10)
+# close sorting
+close <- head(central[order(central[,5], decreasing=TRUE),], 10)
+
+# Co-Keyword Frequency Result
+# 14--33(359), 14--20(350), 14--26(332), 14-32(326), 20-32(270), 32-33(252), 20-33(227)
+co.Key.Freq <- data.frame(Vec.Keyword[14], Vec.Keyword[33], Vec.Keyword[20], Vec.Keyword[32], Vec.Keyword[26])
+

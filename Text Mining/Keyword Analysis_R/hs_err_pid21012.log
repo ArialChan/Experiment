@@ -1,0 +1,205 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 1048576 bytes for AllocateHeap
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (memory/allocation.inline.hpp:61), pid=21012, tid=21016
+#
+# JRE version:  (8.0_91-b14) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.91-b14 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000012dc8000):  JavaThread "Unknown thread" [_thread_in_vm, id=21016, stack(0x0000000000410000,0x0000000004410000)]
+
+Stack: [0x0000000000410000,0x0000000004410000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x0000000012dc8000 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=21016, stack(0x0000000000410000,0x0000000004410000)]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 76288K, used 1310K [0x00000000f5580000, 0x00000000faa80000, 0x0000000100000000)
+  eden space 65536K, 2% used [0x00000000f5580000,0x00000000f56c7af0,0x00000000f9580000)
+  from space 10752K, 0% used [0x00000000fa000000,0x00000000fa000000,0x00000000faa80000)
+  to   space 10752K, 0% used [0x00000000f9580000,0x00000000f9580000,0x00000000fa000000)
+ ParOldGen       total 175104K, used 0K [0x00000000e0000000, 0x00000000eab00000, 0x00000000f5580000)
+  object space 175104K, 0% used [0x00000000e0000000,0x00000000e0000000,0x00000000eab00000)
+ Metaspace       used 746K, capacity 4480K, committed 4480K, reserved 1060864K
+  class space    used 75K, capacity 384K, committed 384K, reserved 1048576K
+
+Card table byte_map: [0x0000000022b50000,0x0000000022c60000] byte_map_base: 0x0000000022450000
+
+Marking Bits: (ParMarkBitMap*) 0x000000005d162f70
+ Begin Bits: [0x0000000042d10000, 0x0000000043510000)
+ End Bits:   [0x0000000043510000, 0x0000000043d10000)
+
+Polling page: 0x0000000013760000
+
+CodeCache: size=245760Kb used=328Kb max_used=328Kb free=245431Kb
+ bounds [0x0000000013790000, 0x0000000013a00000, 0x0000000022790000]
+ total_blobs=58 nmethods=0 adapters=38
+ compilation: enabled
+
+Compilation events (0 events):
+No events
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (10 events):
+Event: 0.038 loading class java/lang/Short
+Event: 0.038 loading class java/lang/Short done
+Event: 0.038 loading class java/lang/Integer
+Event: 0.038 loading class java/lang/Integer done
+Event: 0.038 loading class java/lang/Long
+Event: 0.038 loading class java/lang/Long done
+Event: 0.039 loading class java/lang/NullPointerException
+Event: 0.039 loading class java/lang/NullPointerException done
+Event: 0.039 loading class java/lang/ArithmeticException
+Event: 0.039 loading class java/lang/ArithmeticException done
+
+
+Dynamic libraries:
+0x0000000000400000 - 0x000000000040e000 	C:\PROGRA~1\R\R-32~1.3\bin\x64\Rscript.exe
+0x0000000076d50000 - 0x0000000076efa000 	C:\Windows\SYSTEM32\ntdll.dll
+0x0000000076b30000 - 0x0000000076c4f000 	C:\Windows\system32\kernel32.dll
+0x000007fefcda0000 - 0x000007fefce0a000 	C:\Windows\system32\KERNELBASE.dll
+0x0000000063540000 - 0x00000000635b0000 	C:\PROGRA~1\R\R-32~1.3\bin\x64\Rgraphapp.dll
+0x000000006c700000 - 0x000000006e078000 	C:\PROGRA~1\R\R-32~1.3\bin\x64\R.dll
+0x0000000064e80000 - 0x0000000064eda000 	C:\PROGRA~1\R\R-32~1.3\bin\x64\Rblas.dll
+0x000007fefdcf0000 - 0x000007fefdd8f000 	C:\Windows\system32\msvcrt.dll
+0x00000000641c0000 - 0x00000000641e5000 	C:\PROGRA~1\R\R-32~1.3\bin\x64\Riconv.dll
+0x000007fefd600000 - 0x000007fefd6db000 	C:\Windows\system32\ADVAPI32.dll
+0x000007feff030000 - 0x000007feff04f000 	C:\Windows\SYSTEM32\sechost.dll
+0x000007fefd6e0000 - 0x000007fefd80d000 	C:\Windows\system32\RPCRT4.dll
+0x000007fefe0c0000 - 0x000007fefee49000 	C:\Windows\system32\SHELL32.dll
+0x000007fefee50000 - 0x000007fefeec1000 	C:\Windows\system32\SHLWAPI.dll
+0x000007fefef70000 - 0x000007fefefd7000 	C:\Windows\system32\GDI32.dll
+0x0000000076c50000 - 0x0000000076d4a000 	C:\Windows\system32\USER32.dll
+0x000007fefdce0000 - 0x000007fefdcee000 	C:\Windows\system32\LPK.dll
+0x000007fefdd90000 - 0x000007fefde5a000 	C:\Windows\system32\USP10.dll
+0x000007fefb8c0000 - 0x000007fefb8cc000 	C:\Windows\system32\VERSION.dll
+0x000007fefb200000 - 0x000007fefb3f4000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.7601.18837_none_fa3b1e3d17594757\COMCTL32.dll
+0x000007fefde90000 - 0x000007fefdf27000 	C:\Windows\system32\comdlg32.dll
+0x000007fefde60000 - 0x000007fefde8e000 	C:\Windows\system32\IMM32.dll
+0x000007fefdf30000 - 0x000007fefe039000 	C:\Windows\system32\MSCTF.dll
+0x000007fef9660000 - 0x000007fef9667000 	C:\Windows\system32\MSIMG32.dll
+0x000007fefab60000 - 0x000007fefabb6000 	C:\Windows\system32\uxtheme.dll
+0x000000006e5c0000 - 0x000000006e5e8000 	C:\Program Files\R\R-3.2.3\library\utils\libs\x64\utils.dll
+0x000000006fc80000 - 0x000000006fd89000 	C:\Program Files\R\R-3.2.3\library\grDevices\libs\x64\grDevices.dll
+0x0000000063740000 - 0x0000000063785000 	C:\Program Files\R\R-3.2.3\library\graphics\libs\x64\graphics.dll
+0x0000000071100000 - 0x00000000711a3000 	C:\Program Files\R\R-3.2.3\library\stats\libs\x64\stats.dll
+0x0000000008400000 - 0x0000000008699000 	C:\PROGRA~1\R\R-32~1.3\bin\x64\Rlapack.dll
+0x0000000062a80000 - 0x0000000062a8f000 	C:\Program Files\R\R-3.2.3\library\parallel\libs\x64\parallel.dll
+0x000007fefc8a0000 - 0x000007fefc8c5000 	C:\Windows\system32\SspiCli.dll
+0x0000000064a40000 - 0x0000000064a53000 	C:\Program Files\R\R-3.2.3\library\methods\libs\x64\methods.dll
+0x0000000065700000 - 0x0000000065a40000 	C:\PROGRA~1\R\R-32~1.3\modules\x64\internet.dll
+0x000007fefda10000 - 0x000007fefdcd6000 	C:\Windows\system32\WININET.dll
+0x000007fefce10000 - 0x000007fefce14000 	C:\Windows\system32\api-ms-win-downlevel-user32-l1-1-0.dll
+0x000007fefce40000 - 0x000007fefce44000 	C:\Windows\system32\api-ms-win-downlevel-shlwapi-l1-1-0.dll
+0x000007fefce20000 - 0x000007fefce24000 	C:\Windows\system32\api-ms-win-downlevel-version-l1-1-0.dll
+0x000007fefcb60000 - 0x000007fefcb63000 	C:\Windows\system32\api-ms-win-downlevel-normaliz-l1-1-0.dll
+0x0000000076f10000 - 0x0000000076f13000 	C:\Windows\system32\normaliz.DLL
+0x000007fefce50000 - 0x000007fefd119000 	C:\Windows\system32\iertutil.dll
+0x000007fefce30000 - 0x000007fefce35000 	C:\Windows\system32\api-ms-win-downlevel-advapi32-l1-1-0.dll
+0x000007fefcd40000 - 0x000007fefcd5e000 	C:\Windows\system32\USERENV.dll
+0x000007fefca90000 - 0x000007fefca9f000 	C:\Windows\system32\profapi.dll
+0x000007fef9430000 - 0x000007fef946b000 	C:\Windows\system32\WINMM.dll
+0x000007fefd5a0000 - 0x000007fefd5f2000 	C:\Windows\system32\WLDAP32.dll
+0x000007fefefe0000 - 0x000007feff02d000 	C:\Windows\system32\WS2_32.dll
+0x000007feff050000 - 0x000007feff058000 	C:\Windows\system32\NSI.dll
+0x000007fefc270000 - 0x000007fefc2c5000 	C:\Windows\system32\mswsock.dll
+0x000007fefbc30000 - 0x000007fefbc37000 	C:\Windows\System32\wshtcpip.dll
+0x000007fef9040000 - 0x000007fef9055000 	C:\Windows\system32\NLAapi.dll
+0x000007fef96d0000 - 0x000007fef96e5000 	C:\Windows\system32\napinsp.dll
+0x000007fef96b0000 - 0x000007fef96c9000 	C:\Windows\system32\pnrpnsp.dll
+0x000007fefc0f0000 - 0x000007fefc14b000 	C:\Windows\system32\DNSAPI.dll
+0x000007fef9790000 - 0x000007fef979b000 	C:\Windows\System32\winrnr.dll
+0x00000000704e0000 - 0x0000000070506000 	C:\Program Files\Bonjour\mdnsNSP.dll
+0x000007fef9c80000 - 0x000007fef9ca7000 	C:\Windows\system32\Iphlpapi.DLL
+0x000007fef9c70000 - 0x000007fef9c7b000 	C:\Windows\system32\WINNSI.DLL
+0x000007fef8e70000 - 0x000007fef8ec3000 	C:\Windows\System32\fwpuclnt.dll
+0x000007fef6180000 - 0x000007fef6188000 	C:\Windows\system32\rasadhlp.dll
+0x0000000063d00000 - 0x0000000063d0e000 	C:\Program Files\R\R-3.2.3\library\bitops\libs\x64\bitops.dll
+0x0000000063140000 - 0x0000000063345000 	C:\Program Files\R\R-3.2.3\library\RCurl\libs\x64\RCurl.dll
+0x00000000637c0000 - 0x00000000639e0000 	C:\Program Files\R\R-3.2.3\library\XML\libs\x64\XML.dll
+0x0000000011890000 - 0x0000000011f09000 	C:\Program Files\R\R-3.2.3\library\igraph\libs\x64\igraph.dll
+0x0000000011f50000 - 0x0000000011f5e000 	C:\Program Files\R\R-3.2.3\library\chron\libs\x64\chron.dll
+0x0000000012120000 - 0x000000001213e000 	C:\Program Files\R\R-3.2.3\library\tools\libs\x64\tools.dll
+0x000000006abc0000 - 0x000000006acd8000 	C:\Program Files\R\R-3.2.3\library\Rcpp\libs\x64\Rcpp.dll
+0x00000000128d0000 - 0x0000000012b83000 	C:\Program Files\R\R-3.2.3\library\dplyr\libs\x64\dplyr.dll
+0x0000000062f40000 - 0x0000000062f4d000 	C:\Program Files\R\R-3.2.3\library\gtools\libs\x64\gtools.dll
+0x000000006ea80000 - 0x000000006eaa6000 	C:\Program Files\R\R-3.2.3\library\grid\libs\x64\grid.dll
+0x0000000012be0000 - 0x0000000012bf6000 	C:\Program Files\R\R-3.2.3\library\colorspace\libs\x64\colorspace.dll
+0x0000000066340000 - 0x00000000663f2000 	C:\Program Files\R\R-3.2.3\library\plyr\libs\x64\plyr.dll
+0x0000000062dc0000 - 0x0000000062e77000 	C:\Program Files\R\R-3.2.3\library\scales\libs\x64\scales.dll
+0x0000000064080000 - 0x0000000064095000 	C:\Program Files\R\R-3.2.3\library\rJava\libs\x64\rJava.dll
+0x000000005c950000 - 0x000000005d1e3000 	C:\Program Files\Java\jre1.8.0_91\bin\server\jvm.dll
+0x000007fef7200000 - 0x000007fef7209000 	C:\Windows\system32\WSOCK32.dll
+0x0000000076f20000 - 0x0000000076f27000 	C:\Windows\system32\PSAPI.DLL
+0x0000000071ef0000 - 0x0000000071fc2000 	C:\Windows\system32\MSVCR100.dll
+0x0000000072a70000 - 0x0000000072a7f000 	C:\Program Files\Java\jre1.8.0_91\bin\verify.dll
+0x0000000072a40000 - 0x0000000072a69000 	C:\Program Files\Java\jre1.8.0_91\bin\java.dll
+0x000000005c930000 - 0x000000005c946000 	C:\Program Files\Java\jre1.8.0_91\bin\zip.dll
+
+VM Arguments:
+jvm_args: -Dr.arch=/x64 -Xmx512m -Xrs 
+java_command: <unknown>
+java_class_path (initial): C:/Program Files/R/R-3.2.3/library/rJava/java/boot
+Launcher Type: generic
+
+Environment Variables:
+PATH=C:\Program Files\R\R-3.2.3\bin\x64;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.5\libnvvp;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5\Doctrine extensions for PHP\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Microsoft ASP.NET\ASP.NET Web Pages\v1.0\;C:\Program Files (x86)\Windows Kits\8.0\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Python27;C:\Python27\Scripts;C:\Program Files\MATLAB\R2015a\runtime\win64;C:\Program Files\MATLAB\R2015a\bin;C:\Program Files\Git\cmd;D:\#3 Experiments\#3 FP-Growth\apache-maven-3.3.9\bin;
+USERNAME=Administrator
+DISPLAY=:0
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 60 Stepping 3, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 7 , 64 bit Build 7601 (6.1.7601.23418)
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 60 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, rtm, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2
+
+Memory: 4k page, physical 16694312k(1196256k free), swap 66725512k(24420k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.91-b14) for windows-amd64 JRE (1.8.0_91-b14), built on Apr  1 2016 00:58:32 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Wed Sep 28 18:32:50 2016
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
