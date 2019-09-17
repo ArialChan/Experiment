@@ -8,4 +8,4 @@
 
  *Use example has been provided in **slurm.sh***
 
-![Alt text](C:/Users/CHC/사진/system.png)
+![Alt text](D:/Need/git_img/system.PNG)
