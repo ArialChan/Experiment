@@ -1,4 +1,3 @@
-# HACAModel
  Implementation of "Watch, Listen, and Describe: Globally and Locally Aligned Cross-Modal Attentions for Video Captioning" (https://arxiv.org/abs/1804.05448)
 
  ### Requirements:
