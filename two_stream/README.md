@@ -8,3 +8,4 @@
 
  *Use example has been provided in **slurm.sh***
 
+![Alt text](C:\Users\CHC\사진\system.png)
