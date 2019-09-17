@@ -5,3 +5,6 @@
 
 
 * Three-stream : Captioning Network (Opticalflow + RGB + Audio)
+
+
+* Text Mining : keyword analysis & OLAP in R
